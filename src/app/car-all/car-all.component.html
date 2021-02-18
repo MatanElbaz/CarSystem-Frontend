@@ -1,0 +1,47 @@
+
+
+<div>
+  <h3>Welcome! You can click on each of the vehicles to see its details, delete button to delete a vehicle from the system, edit button to add a new vehicle.</h3>
+
+  <table id="myTable" *ngIf="cars" style=" border: 1px;">
+
+      <caption>
+          <input type="text" id="myInput" (input)="applyFilter($event)" placeholder="Search Car(License Plate)">
+      </caption>
+      <thead>
+          <tr class="header">
+              <th>License Plate</th>
+              <th>Car Type</th>
+              <th>4x4?</th>
+              <th>Engine Capacity</th>
+              <th>Status</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let c of findedCars" >
+              <td routerLink="/car-details/{{c.carId}}">{{c.licensePlate}}</td>
+              <td routerLink="/car-details/{{c.carId}}">{{c.carType}}</td>
+              <td routerLink="/car-details/{{c.carId}}">{{c.is4x4}}</td>
+              <td routerLink="/car-details/{{c.carId}}">{{c.engineCapacity}}</td>
+              <td routerLink="/car-details/{{c.carId}}">{{c.status}}</td>
+
+              <td>
+                  <button type="button" class="btn" (click)="deleteCar(c.carId)"><i class="fa fa-trash"></i></button>
+
+              </td>
+              <td>
+                  <button type="button" class="btn" routerLink="/update/{{c.carId}}"><i class="fa fa-edit" ></i></button>
+              </td>
+
+
+          </tr>
+
+
+      </tbody>
+  </table>
+  <div *ngIf = "!cars" >
+      <p> There is no Cars in the system.</p>
+      <p> To add a new Car,Click <a routerLink="/add">here</a></p>
+   </div>
+</div>
+

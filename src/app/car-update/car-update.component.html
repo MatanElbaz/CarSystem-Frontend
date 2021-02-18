@@ -1,0 +1,114 @@
+<div *ngIf= "!car">
+  <h2>Car Not Found!</h2>
+  <app-not-found></app-not-found>
+</div>
+
+<div *ngIf="car">
+<form action="action_page.php" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Update Car</h1>
+    <p>Please fill in this form to update car.</p>
+    <hr class="sep-2" />
+
+    <br>
+    <label for="email"><b>License Plate</b></label>
+    <br>
+        <input type="text" name="licensePlate" [formControl]= "carLicensePlate"
+        [ngClass]="{'invalid':carLicensePlate.invalid && carLicensePlate.touched}" placeholder="License plate number.."  >
+    <br>
+    <ul class="error" *ngIf="carLicensePlate.dirty && carLicensePlate.invalid">
+      <li *ngIf="carLicensePlate.errors?.minlength && carLicensePlate.touched">Invalid license plate(min 5 chars)</li>
+      <li *ngIf="carLicensePlate.errors?.required && carLicensePlate.touched">license plate is required</li>
+    </ul>
+    <br>
+        <label for="psw"><b>Engine Capacity</b></label>
+    <br>
+        <input type="number" name="title" [formControl]= "carEngineCapacity"
+        [ngClass]="{'invalid':carEngineCapacity.invalid && carEngineCapacity.touched}" placeholder="Engine capacity.." >
+    <br>
+    <ul class="error" *ngIf="carEngineCapacity.dirty && carEngineCapacity.invalid">
+
+      <li *ngIf="carEngineCapacity.errors?.min && carEngineCapacity.touched">Engine Capacity too small. min 800</li>
+      <li *ngIf="carEngineCapacity.errors?.required && carEngineCapacity.touched">Engine Capacity is required</li>
+      <!-- <li *ngIf="carEngineCapacity.dirty && carEngineCapacity.errors?.pattern">Invalid Capacity, start with a capital letter</li> -->
+    </ul>
+    <br>
+        <label for="psw-repeat"><b>Care Date</b></label>
+    <br>
+        <input type="date" name="careDate" [formControl]= "carCareDate"
+        [ngClass]="{'invalid':carCareDate.invalid && carCareDate.touched}" placeholder="Care Date.." >
+    <br>
+    <ul class="error" *ngIf="carCareDate.dirty && carCareDate.invalid">
+
+      <li *ngIf="carCareDate.errors?.required && carCareDate.touched">Care date is required</li>
+    </ul>
+    <br>
+        <label for="psw-repeat"><b>Edit Date</b></label>
+    <br>
+        <input type="date" name="editDate" [formControl]= "carEditDate"
+        [ngClass]="{'invalid':carEditDate.invalid && carEditDate.touched}"placeholder="Edit Date.." >
+    <br>
+    <ul class="error" *ngIf="carEditDate.dirty && carEditDate.invalid">
+
+      <li *ngIf="carEditDate.errors?.required && carEditDate.touched">Edit date is required</li>
+    </ul>
+    <br>
+        <label for="psw-repeat"><b>Year</b></label>
+    <br>
+        <input type="number" name="year" [formControl]= "carYear"
+        [ngClass]="{'invalid':carYear.invalid && carYear.touched}" placeholder="Year.." >
+    <br>
+    <ul class="error" *ngIf="carYear.dirty && carYear.invalid">
+      <li *ngIf="carYear.errors?.min && carYear.touched">Invalid year (1950-2021)</li>
+      <li *ngIf="carYear.errors?.max && carYear.touched">Invalid year (1950-2021)</li>
+      <li *ngIf="carYear.errors?.required && carYear.touched">Year is required</li>
+    </ul>
+    <br>
+        <label for="psw-repeat"><b>Car Type</b></label>
+    <br>
+    <select name="demo" id="#" [formControl]= "carType">
+      <option selected="selected" value="1">Private</option>
+      <option value="2">Mini-Van</option>
+      <option value="3">Jeep</option>
+      <option value="4">Coupe</option>
+      <option value="5">SUV</option>
+      </select>
+    <br>
+        <label for="psw-repeat"><b>Note</b></label>
+    <br>
+        <input type="text" name="note" [formControl]= "carNote"
+        [ngClass]="{'invalid':carNote.invalid && carNote.touched}"placeholder="Description.." >
+    <br>
+    <ul class="error" *ngIf="carNote.dirty && carNote.invalid">
+
+      <li *ngIf="carNote.errors?.minlength && carNote.touched">Note too short. at least {{carNote.errors.minlength.requiredLength}} characters</li>
+      <li *ngIf="carNote.errors?.maxlength && carNote.dirty">Note too long. max {{carNote.errors.maxlength.requiredLength}} characters</li>
+    </ul>
+    <br>
+    <label for="psw-repeat"><b>Status-Delivered to the employee?</b></label>
+      <br>
+      <select name="demo" id="#" [formControl]= "carStatus">
+        <option selected="selected" value="1">Yes</option>
+        <option value="2">No</option>
+        </select>
+      <br>
+
+    <br>
+        <label for="psw-repeat"><b>4x4?</b></label>
+    <br>
+        <input [checked] ="is4x4" (change)="is4x4 = !is4x4" type="checkbox" name="is4x4"/>
+    <br>
+
+
+<br>
+
+    <div class="clearfix">
+      <button routerLink="/home" type="button" class="cancelbtn">Cancel</button>
+      <button class="signupbtn"  [disabled]="!registrationForm.valid" (click)="updateCar()">Update Car</button>
+
+    </div>
+  </div>
+</form>
+</div>
+
+
