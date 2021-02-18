@@ -46,7 +46,7 @@ export class CarAddComponent implements OnInit {
   public addCar(): void {
     this.car.licensePlate = this.carLicensePlate.value;
     this.car.engineCapacity = this.carEngineCapacity.value;
-    this.car.is4x4 = this.is4x4;
+    this.car.suv = this.is4x4;
     this.car.carType = this.carType.value;
     this.car.careDate = this.carCareDate.value;
     this.car.editDate = this.carEditDate.value;
@@ -56,7 +56,7 @@ export class CarAddComponent implements OnInit {
 
     this.carService.addCar(this.car).subscribe(
       createCar => {
-        alert(this.car.is4x4)
+        alert(this.car.suv)
         alert("Car has been successfully Added.")
         this.router.navigate(["/home"]);
       }, err => {

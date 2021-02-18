@@ -3,7 +3,7 @@ public constructor(
   public carId?: number,
   public licensePlate?: string,
   public carType?: number,
-  public is4x4?: boolean,
+  public suv?: boolean,
   public engineCapacity?: number,
   public year?: number,
   public note?: string,

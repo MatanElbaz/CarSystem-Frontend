@@ -67,7 +67,7 @@ public constructor(private activeRoute: ActivatedRoute, private carService: CarS
 
     this.car.licensePlate = this.carLicensePlate.value;
     this.car.engineCapacity = this.carEngineCapacity.value;
-    this.car.is4x4 = this.is4x4;
+    this.car.suv = this.is4x4;
     this.car.carType = this.carType.value;
     this.car.careDate = this.carCareDate.value;
     this.car.editDate = this.carEditDate.value;
