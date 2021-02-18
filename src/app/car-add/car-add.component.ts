@@ -56,7 +56,7 @@ export class CarAddComponent implements OnInit {
 
     this.carService.addCar(this.car).subscribe(
       createCar => {
-        alert(this.car.suv)
+
         alert("Car has been successfully Added.")
         this.router.navigate(["/home"]);
       }, err => {
