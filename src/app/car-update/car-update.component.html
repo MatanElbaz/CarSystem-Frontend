@@ -28,9 +28,8 @@
     <br>
     <ul class="error" *ngIf="carEngineCapacity.dirty && carEngineCapacity.invalid">
 
-      <li *ngIf="carEngineCapacity.errors?.min && carEngineCapacity.touched">Engine Capacity too small. min 800</li>
-      <li *ngIf="carEngineCapacity.errors?.required && carEngineCapacity.touched">Engine Capacity is required</li>
-      <!-- <li *ngIf="carEngineCapacity.dirty && carEngineCapacity.errors?.pattern">Invalid Capacity, start with a capital letter</li> -->
+      <!-- <li *ngIf="carEngineCapacity.errors?.min && carEngineCapacity.touched">Engine Capacity too small. min 800</li> -->
+
     </ul>
     <br>
         <label for="psw-repeat"><b>Care Date</b></label>
@@ -96,12 +95,11 @@
     <br>
         <label for="psw-repeat"><b>4x4?</b></label>
     <br>
-        <input [checked] ="is4x4" (change)="is4x4 = !is4x4" type="checkbox" name="is4x4"/>
+        <input [checked] ="car.suv" (change)="car.suv = !car.suv" type="checkbox" name="is4x4"/>
     <br>
 
 
 <br>
-
     <div class="clearfix">
       <button routerLink="/home" type="button" class="cancelbtn">Cancel</button>
       <button class="signupbtn"  [disabled]="!registrationForm.valid" (click)="updateCar()">Update Car</button>

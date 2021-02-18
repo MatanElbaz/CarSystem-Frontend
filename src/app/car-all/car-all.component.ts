@@ -29,9 +29,9 @@ export class CarAllComponent implements OnInit {
       arr =>{
         this.cars = arr;
         this.findedCars = [];
-        for(const c of this.cars){
+          for(const c of this.cars){
           this.findedCars.push(c);
-        }
+          }
       },err=>{
         alert(err.error.message);
       });
@@ -39,21 +39,22 @@ export class CarAllComponent implements OnInit {
 
   deleteCar(id: number) {
     var isDelete= confirm("Are you sure that you want to remove this car?");
-    if(isDelete){
-      this.carService.deleteCar(id).subscribe(msg=> {
+      if(isDelete){
+        this.carService.deleteCar(id).subscribe(msg=> {
 
         this.ngOnInit();
 
-      }, err => {
+        }, err => {
         let obj = JSON.parse(err.error);
           alert(obj.message);
-      });
+        });
     }
 
   }
 
   applyFilter(event: any):void {
     let q: string = event.target.value;
+
     let arr = this.cars.filter((c)=>{
       return c.licensePlate.toLocaleLowerCase().indexOf(q.toLocaleLowerCase()) != -1;
     });

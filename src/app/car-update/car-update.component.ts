@@ -16,25 +16,25 @@ export class CarUpdateComponent implements OnInit {
   public id: any;
 
   public carLicensePlate = new FormControl('',[Validators.minLength(5), Validators.maxLength(20), Validators.required]);
-  public carEngineCapacity = new FormControl('', [Validators.required, Validators.min(800),]);
+  public carEngineCapacity = new FormControl('', []);
   public carCareDate = new FormControl('', [Validators.required,]);
   public carEditDate = new FormControl('', [Validators.required,]);
-  public carType = new FormControl('',);
+  public carType = new FormControl('', [Validators.required]);
   public carYear = new FormControl('', [Validators.required, Validators.min(1950),Validators.max(2021),]);
-  public carNote = new FormControl('',[Validators.minLength(10), Validators.maxLength(50)]);
-  public carStatus = new FormControl('', );
+  public carNote = new FormControl('',[Validators.minLength(5), Validators.maxLength(50)]);
+  public carStatus = new FormControl('', []);
   public is4x4 =false;
 
   registrationForm = new FormGroup(
     {
-        licensePlate: this.carLicensePlate,
-        engineCapacity: this.carEngineCapacity,
-        careDate: this.carCareDate,
-        editDate: this.carEditDate,
-        carType: this.carType,
-        year: this.carYear,
-        note: this.carNote,
-        status: this.carStatus,
+      licensePlate: this.carLicensePlate,
+      engineCapacity: this.carEngineCapacity,
+      careDate: this.carCareDate,
+      editDate: this.carEditDate,
+      carType: this.carType,
+      year: this.carYear,
+      note: this.carNote,
+      status: this.carStatus,
 
     }
 );
@@ -78,7 +78,7 @@ public constructor(private activeRoute: ActivatedRoute, private carService: CarS
 
 
     this.carService.updateCar(this.id,this.car).subscribe(c =>{
-      this.car = c;
+
       alert("Car has been successfully updated !")
       this.router.navigate(['home']);
     },err =>{
