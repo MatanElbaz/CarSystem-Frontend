@@ -27,10 +27,10 @@
         [ngClass]="{'invalid':carEngineCapacity.invalid && carEngineCapacity.touched}" placeholder="Engine capacity.." >
     <br>
     <ul class="error" *ngIf="carEngineCapacity.dirty && carEngineCapacity.invalid">
-
+        <li *ngIf="carEngineCapacity.errors?.min && carEngineCapacity.touched">Engine Capacity too small. min 800</li>
+        <li *ngIf="carEngineCapacity.errors?.required && carEngineCapacity.touched">Engine Capacity is required</li>
+      </ul>
       <!-- <li *ngIf="carEngineCapacity.errors?.min && carEngineCapacity.touched">Engine Capacity too small. min 800</li> -->
-
-    </ul>
     <br>
         <label for="psw-repeat"><b>Care Date</b></label>
     <br>

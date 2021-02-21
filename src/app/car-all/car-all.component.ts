@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Car } from '../models/car';
 import { CarServiceService } from '../services/car-service.service';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-car-all',
@@ -15,6 +16,10 @@ export class CarAllComponent implements OnInit {
   findedCars: Car[];
   carId: number;
   car: Car;
+
+  /*name of the excel-file which will be downloaded. */
+  fileName= 'ExcelCarSheet.xlsx';
+
 
   constructor(private activeRoute: ActivatedRoute,private carService: CarServiceService) { }
 
@@ -59,6 +64,20 @@ export class CarAllComponent implements OnInit {
       return c.licensePlate.toLocaleLowerCase().indexOf(q.toLocaleLowerCase()) != -1;
     });
     this.findedCars = arr;
+  }
+
+  exportexcel(): void
+  {
+     /* table id is passed over here */
+     let element = document.getElementById('myTable');
+     const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+     /* generate workbook and add the worksheet */
+     const wb: XLSX.WorkBook = XLSX.utils.book_new();
+     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+     /* save to file */
+     XLSX.writeFile(wb, this.fileName);
+
   }
 
 }

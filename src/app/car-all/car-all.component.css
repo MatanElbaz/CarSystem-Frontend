@@ -91,3 +91,15 @@ tr, td, th {
   /* Add a grey background color to the table header and on hover */
   background-color: rgba(139, 139, 139, 0.527);
 }
+.excel{
+  margin-top: 22px;
+  background-color: rgb(224, 108, 108); /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 19px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+.excel:hover {
+  background-color: rgb(228, 63, 63);
+}

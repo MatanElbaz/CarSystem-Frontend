@@ -1,13 +1,20 @@
 
 
 <div>
+
   <h3>Welcome! You can click on each of the vehicles to see its details, delete button to delete a vehicle from the system, edit button to add a new vehicle.</h3>
   <div class="scrollit">
+
+    <a style="cursor: pointer" (click)="exportexcel()">
+      <button class="excel">Excel Download</button>
+    </a>
+
   <table id="myTable" *ngIf="cars" style=" border: 1px;">
 
       <caption>
           <input type="text" id="myInput" (input)="applyFilter($event)" placeholder="Search Car(License Plate)">
       </caption>
+
           <thead>
               <tr class="header">
                   <th>License Plate</th>

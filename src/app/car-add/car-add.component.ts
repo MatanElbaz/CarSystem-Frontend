@@ -15,7 +15,7 @@ export class CarAddComponent implements OnInit {
   public car= new Car()
 
   public carLicensePlate = new FormControl('',[Validators.minLength(5), Validators.maxLength(20), Validators.required]);
-  public carEngineCapacity = new FormControl('', [Validators.min(800),]);
+  public carEngineCapacity = new FormControl('', [Validators.minLength(3),Validators.min(800),]);
   public carCareDate = new FormControl('', [Validators.required,]);
   public carEditDate = new FormControl('', [Validators.required,]);
   public carType = new FormControl('', [Validators.required]);
