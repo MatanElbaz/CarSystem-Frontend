@@ -4,14 +4,15 @@
     system, edit button to add a new vehicle.</h3>
   <div class="scrollit">
 
-    <a style="cursor: pointer" (click)="exportexcel()">
-      <button class="excel">Excel Download</button>
-    </a>
+
 
     <table id="myTable" *ngIf="cars" style=" border: 1px;">
 
       <caption>
         <input type="text" id="myInput" (input)="applyFilter($event)" placeholder="Search Car(License Plate)">
+        <a style="cursor: pointer" (click)="exportexcel()">
+          <button class="excel">Excel Download</button>
+        </a>
       </caption>
 
       <thead>
