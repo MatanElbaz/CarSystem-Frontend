@@ -18,65 +18,64 @@ export class CarAllComponent implements OnInit {
   car: Car;
 
   /*name of the excel-file which will be downloaded. */
-  fileName= 'ExcelCarSheet.xlsx';
+  fileName = 'ExcelCarSheet.xlsx';
 
 
-  constructor(private activeRoute: ActivatedRoute,private carService: CarServiceService) { }
+  constructor(private activeRoute: ActivatedRoute, private carService: CarServiceService) { }
 
   ngOnInit(): void {
     this.getCars();
   }
 
-  private getCars():void{
+  private getCars(): void {
     let obsOfCars: Observable<Car[]> = this.carService.getAllCars();
 
     obsOfCars.subscribe(
-      arr =>{
+      arr => {
         this.cars = arr;
         this.findedCars = [];
-          for(const c of this.cars){
+        for (const c of this.cars) {
           this.findedCars.push(c);
-          }
-      },err=>{
+        }
+      }, err => {
 
       });
   }
 
   deleteCar(id: number) {
-    var isDelete= confirm("Are you sure that you want to remove this car?");
-      if(isDelete){
-        this.carService.deleteCar(id).subscribe(msg=> {
+    var isDelete = confirm("Are you sure that you want to remove this car?");
+    if (isDelete) {
+      this.carService.deleteCar(id).subscribe(msg => {
 
         this.ngOnInit();
 
-        }, err => {
+      }, err => {
         let obj = JSON.parse(err.error);
-          alert(obj.message);
-        });
+        alert(obj.message);
+      });
     }
 
   }
 
-  applyFilter(event: any):void {
+  applyFilter(event: any): void {
     let q: string = event.target.value;
 
-    let arr = this.cars.filter((c)=>{
+    let arr = this.cars.filter((c) => {
       return c.licensePlate.toLocaleLowerCase().indexOf(q.toLocaleLowerCase()) != -1;
     });
     this.findedCars = arr;
   }
 
-  exportexcel(): void
-  {
-     /* table id is passed over here */
-     let element = document.getElementById('myTable');
-     const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
-     /* generate workbook and add the worksheet */
-     const wb: XLSX.WorkBook = XLSX.utils.book_new();
-     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+  exportexcel(): void {
+    /* table id is passed over here */
+    let element = document.getElementById('myTable');
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
-     /* save to file */
-     XLSX.writeFile(wb, this.fileName);
+    /* save to file */
+    XLSX.writeFile(wb, this.fileName);
 
   }
 

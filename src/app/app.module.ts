@@ -11,7 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { RootComponent } from './root/root.component';
 import { LayoutComponent } from './layout/layout.component';
 import { CarAddComponent } from './car-add/car-add.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CarAllComponent } from './car-all/car-all.component';
 import { CarUpdateComponent } from './car-update/car-update.component';

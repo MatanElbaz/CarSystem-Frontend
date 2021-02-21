@@ -8,12 +8,12 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  applyFilter(event: any):void {
+  applyFilter(event: any): void {
     this.router.navigate(["cars/all"]);
 
   }

@@ -13,7 +13,7 @@ export class CarServiceService {
 
 
   public addCar(car: Car): Observable<Car> {
-    return this.httpClient.put<Car>("http://localhost:8080/api/add", car, {responseType: 'text' as 'json', withCredentials: true });
+    return this.httpClient.put<Car>("http://localhost:8080/api/add", car, { responseType: 'text' as 'json', withCredentials: true });
   }
 
   public getAllCars(): Observable<Car[]> {
@@ -22,14 +22,14 @@ export class CarServiceService {
 
   }
   public deleteCar(id: number): Observable<any> {
-    return this.httpClient.delete<any>("http://localhost:8080/api/delete/" + id , { responseType: 'text' as 'json', withCredentials: true });
+    return this.httpClient.delete<any>("http://localhost:8080/api/delete/" + id, { responseType: 'text' as 'json', withCredentials: true });
   }
 
   public updateCar(carId: number, car: Car): Observable<Car> {
     return this.httpClient.put<Car>("http://localhost:8080/api/update/" + carId, car, { responseType: 'text' as 'json', withCredentials: true });
   }
   public getCarByIdRest(id: number): Observable<Car> {
-    return this.httpClient.get<Car>("http://localhost:8080/api/car/" + id, {withCredentials: true });
+    return this.httpClient.get<Car>("http://localhost:8080/api/car/" + id, { withCredentials: true });
   }
 
 }

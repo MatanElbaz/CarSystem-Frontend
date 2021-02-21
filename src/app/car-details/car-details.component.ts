@@ -14,18 +14,18 @@ export class CarDetailsComponent implements OnInit {
   public car: Car;
   public id: number;
 
-  constructor(private title:Title, private activeRoute: ActivatedRoute, private carService : CarServiceService) {
+  constructor(private title: Title, private activeRoute: ActivatedRoute, private carService: CarServiceService) {
     this.id = this.activeRoute.snapshot.params['id'];
-   }
+  }
 
-    ngOnInit(): void {
+  ngOnInit(): void {
 
-      this.carService.getCarByIdRest(this.id).subscribe(c =>{
-        this.car = c;
-        this.title.setTitle("Car Details");
-        },err=>{
-          let obj = JSON.parse(err.error);
-          alert(obj.message);
+    this.carService.getCarByIdRest(this.id).subscribe(c => {
+      this.car = c;
+      this.title.setTitle("Car Details");
+    }, err => {
+      let obj = JSON.parse(err.error);
+      alert(obj.message);
     });
 
   }

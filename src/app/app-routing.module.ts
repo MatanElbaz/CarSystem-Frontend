@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "car-details/:id", component: CarDetailsComponent },
   { path: "contact", component: ContactComponent },
-  { path: "update/:id",  component:CarUpdateComponent },
+  { path: "update/:id", component: CarUpdateComponent },
   { path: "add", component: CarAddComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "**", redirectTo: '/404', pathMatch: "full" },

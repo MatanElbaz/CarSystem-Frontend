@@ -16,8 +16,8 @@ export class ContactComponent implements OnInit {
     this.title.setTitle("Contact")
 
   }
-  submitForm(){
+  submitForm() {
     //send email to matanelbaz00@gmail.com
-   }
+  }
 
 }

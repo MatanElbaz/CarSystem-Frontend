@@ -15,15 +15,15 @@ export class CarUpdateComponent implements OnInit {
   public car = new Car;
   public id: any;
 
-  public carLicensePlate = new FormControl('',[Validators.minLength(5), Validators.maxLength(20), Validators.required]);
-  public carEngineCapacity = new FormControl('', [Validators.minLength(3),Validators.min(800),]);
+  public carLicensePlate = new FormControl('', [Validators.minLength(5), Validators.maxLength(20), Validators.required]);
+  public carEngineCapacity = new FormControl('', [Validators.minLength(3), Validators.min(800),]);
   public carCareDate = new FormControl('', [Validators.required,]);
   public carEditDate = new FormControl('', [Validators.required,]);
   public carType = new FormControl('', [Validators.required]);
-  public carYear = new FormControl('', [Validators.required, Validators.min(1950),Validators.max(2021),]);
-  public carNote = new FormControl('',[Validators.minLength(5), Validators.maxLength(50)]);
+  public carYear = new FormControl('', [Validators.required, Validators.min(1950), Validators.max(2021),]);
+  public carNote = new FormControl('', [Validators.minLength(5), Validators.maxLength(50)]);
   public carStatus = new FormControl('', []);
-  public is4x4 =false;
+  public is4x4 = false;
 
   registrationForm = new FormGroup(
     {
@@ -37,16 +37,16 @@ export class CarUpdateComponent implements OnInit {
       status: this.carStatus,
 
     }
-);
+  );
 
 
-public constructor(private activeRoute: ActivatedRoute, private carService: CarServiceService, private router: Router) {
-  this.id = this.activeRoute.snapshot.params['id'];
-}
+  public constructor(private activeRoute: ActivatedRoute, private carService: CarServiceService, private router: Router) {
+    this.id = this.activeRoute.snapshot.params['id'];
+  }
 
   ngOnInit(): void {
 
-    this.carService.getCarByIdRest(this.id).subscribe(c =>{
+    this.carService.getCarByIdRest(this.id).subscribe(c => {
       this.car = c;
       this.carLicensePlate.setValue(c.licensePlate);
       this.carEngineCapacity.setValue(c.engineCapacity);
@@ -56,13 +56,13 @@ public constructor(private activeRoute: ActivatedRoute, private carService: CarS
       this.carType.setValue(c.carType);
       this.carNote.setValue(c.note);
       this.carYear.setValue(c.year);
-    }, err =>{
-      this.car=null;
+    }, err => {
+      this.car = null;
     });
 
   }
 
-  public updateCar(){
+  public updateCar() {
 
 
     this.car.licensePlate = this.carLicensePlate.value;
@@ -77,11 +77,11 @@ public constructor(private activeRoute: ActivatedRoute, private carService: CarS
 
 
 
-    this.carService.updateCar(this.id,this.car).subscribe(c =>{
+    this.carService.updateCar(this.id, this.car).subscribe(c => {
 
       alert("Car has been successfully updated !")
       this.router.navigate(['home']);
-    },err =>{
+    }, err => {
       let obj = JSON.parse(err.error);
       alert(obj.message);
     })

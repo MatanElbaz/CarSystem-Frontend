@@ -11,7 +11,7 @@ export class NotFoundComponent implements OnInit {
   //private _location: Location
   constructor(private title: Title, private router: Router) { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.title.setTitle("404 Not Found")
   }
 

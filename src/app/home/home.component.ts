@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
 
-  constructor(private title:Title, private router:Router) { }
+  constructor(private title: Title, private router: Router) { }
 
   ngOnInit(): void {
     this.title.setTitle("Home");
