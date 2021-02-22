@@ -4,7 +4,7 @@
     <p>Please fill this form to add a new car.</p>
     <hr class="sep-2" />
 
-    <label for="License"><b>License Plate</b></label>
+    <label for="License"><b>License Plate*</b></label>
     <br>
     <input type="text" name="licensePlate" [formControl]="carLicensePlate"
       [ngClass]="{'invalid':carLicensePlate.invalid && carLicensePlate.touched}" placeholder="License plate number..">
@@ -25,7 +25,7 @@
       <li *ngIf="carEngineCapacity.errors?.required && carEngineCapacity.touched">Engine Capacity is required</li>
     </ul>
     <br>
-    <label for="psw-repeat"><b>Care Date</b></label>
+    <label for="psw-repeat"><b>Care Date*</b></label>
     <br>
     <input type="date" name="careDate" [formControl]="carCareDate"
       [ngClass]="{'invalid':carCareDate.invalid && carCareDate.touched}" placeholder="Care Date..">
@@ -34,7 +34,7 @@
       <li *ngIf="carCareDate.errors?.required && carCareDate.touched">Care date is required</li>
     </ul>
     <br>
-    <label for="psw-repeat"><b>Edit Date</b></label>
+    <label for="psw-repeat"><b>Edit Date*</b></label>
     <br>
     <input type="date" name="editDate" [formControl]="carEditDate"
       [ngClass]="{'invalid':carEditDate.invalid && carEditDate.touched}" placeholder="Edit Date..">
@@ -43,7 +43,7 @@
       <li *ngIf="carEditDate.errors?.required && carEditDate.touched">Edit date is required</li>
     </ul>
     <br>
-    <label for="psw-repeat"><b>Year</b></label>
+    <label for="psw-repeat"><b>Year*</b></label>
     <br>
     <input type="number" name="year" [formControl]="carYear" [ngClass]="{'invalid':carYear.invalid && carYear.touched}"
       placeholder="Year..">
@@ -54,7 +54,7 @@
       <li *ngIf="carYear.errors?.required && carYear.touched">Year is required</li>
     </ul>
     <br>
-    <label for="psw-repeat"><b>Car Type</b></label>
+    <label for="psw-repeat"><b>Car Type*</b></label>
     <br>
     <select name="type" id="#" [formControl]="carType">
       <option selected="selected" value="1">Private</option>

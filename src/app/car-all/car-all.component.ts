@@ -21,7 +21,7 @@ export class CarAllComponent implements OnInit {
   fileName = 'ExcelCarSheet.xlsx';
 
 
-  constructor(private activeRoute: ActivatedRoute, private carService: CarServiceService) { }
+  constructor(private carService: CarServiceService) { }
 
   ngOnInit(): void {
     this.getCars();
